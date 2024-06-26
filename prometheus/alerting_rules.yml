@@ -1,0 +1,11 @@
+groups:
+  - name: instance_down_alert
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 5m  # Durée pendant laquelle la condition doit être vraie avant de déclencher l'alerte.
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance {{ $labels.instance }} down"
+          description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."

@@ -1,0 +1,4 @@
+FROM docker.io/prom/prometheus
+
+ADD prometheus.yml /etc/prometheus
+ADD alerting_rules.yml /etc/prometheus

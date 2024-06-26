@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s  # Interval de récupération par défaut pour tous les cibles.
+
+scrape_configs:
+  - job_name: 'prometheus'  # Nom du job.
+    static_configs:
+      - targets: ['localhost:9090']  # Liste des cibles à surveiller (ajustez selon vos besoins).
+
+rule_files:
+  - "alerting_rules.yml"  # Chemin vers le fichier contenant les règles d'alerte.
+
+# Le fichier d'alerte doit être créé séparément.
